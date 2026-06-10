@@ -1,0 +1,119 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>GameIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="back.png" />
+    <None Remove="battlefield2.jpg" />
+    <None Remove="battleship.png" />
+    <None Remove="BS1.png" />
+    <None Remove="BS11.png" />
+    <None Remove="BS12.png" />
+    <None Remove="BS13.png" />
+    <None Remove="BS14.png" />
+    <None Remove="BS2.png" />
+    <None Remove="BS3.png" />
+    <None Remove="BS4.png" />
+    <None Remove="CAR1.png" />
+    <None Remove="CAR2.png" />
+    <None Remove="CAR3.png" />
+    <None Remove="CAR4.png" />
+    <None Remove="CAR5.png" />
+    <None Remove="carrier.png" />
+    <None Remove="CRU1.png" />
+    <None Remove="CRU2.png" />
+    <None Remove="CRU3.png" />
+    <None Remove="cruiser.png" />
+    <None Remove="DES1.png" />
+    <None Remove="DES2.png" />
+    <None Remove="destroyer.png" />
+    <None Remove="easy.png" />
+    <None Remove="grid.png" />
+    <None Remove="hard.png" />
+    <None Remove="hit.jpg" />
+    <None Remove="hit.wav" />
+    <None Remove="medium.png" />
+    <None Remove="miss.jpg" />
+    <None Remove="miss.wav" />
+    <None Remove="PLAY.png" />
+    <None Remove="SUB1.png" />
+    <None Remove="SUB2.png" />
+    <None Remove="SUB3.png" />
+    <None Remove="submarine.png" />
+    <None Remove="warship.jpg" />
+    <None Remove="warship2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="BS1.png" />
+    <Resource Include="BS11.png" />
+    <Resource Include="BS12.png" />
+    <Resource Include="BS13.png" />
+    <Resource Include="BS14.png" />
+    <Resource Include="BS2.png" />
+    <Resource Include="CAR1.png" />
+    <Resource Include="CAR2.png" />
+    <Resource Include="CAR3.png" />
+    <Resource Include="CAR4.png" />
+    <Resource Include="CAR5.png" />
+    <Resource Include="CRU1.png" />
+    <Resource Include="CRU2.png" />
+    <Resource Include="CRU3.png" />
+    <Resource Include="DES1.png" />
+    <Resource Include="DES2.png" />
+    <Resource Include="grid.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="GameIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="back.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="battlefield2.jpg" />
+    <Resource Include="battleship.png" />
+    <Resource Include="carrier.png" />
+    <Resource Include="cruiser.png" />
+    <Resource Include="destroyer.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="easy.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="hard.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="hit.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="hit.wav" />
+    <Resource Include="medium.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="miss.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="miss.wav" />
+    <Resource Include="PLAY.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="SUB1.png" />
+    <Resource Include="SUB2.png" />
+    <Resource Include="SUB3.png" />
+    <Resource Include="submarine.png" />
+    <Resource Include="warship.jpg" />
+    <Resource Include="warship2.jpg" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,232 @@
+﻿<Page x:Class="BattleShip.Easy"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="BattleShip">
+
+    <Page.Resources>
+
+        <!-- GRID BUTTON STYLE (same as hard) -->
+        <Style x:Key="GridButtonStyle" TargetType="Button">
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="Background" Value="#153F49"/>
+            <Setter Property="BorderBrush" Value="#66C8D6D8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1E6F7A"/>
+                </Trigger>
+
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#0E3A42"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="GridLabelStyle" TargetType="Label">
+            <Setter Property="Width" Value="48"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <!-- Label Style matching Button look -->
+        <Style x:Key="MetalLabelStyle" TargetType="Label">
+            <!-- SIZE (must match grid cells) -->
+            <Setter Property="Width" Value="48"/>
+            <Setter Property="Height" Value="48"/>
+
+            <!-- TEXT -->
+            <Setter Property="FontFamily" Value="Castellar"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="#FF0F1A1D"/>
+
+            <!-- ALIGNMENT -->
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <!-- CLEAN SPACING -->
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="1"/>
+
+            <!-- BORDER -->
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#FF2C3E42"/>
+
+            <!-- METAL LOOK -->
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FFE0E0E0" Offset="0"/>
+                        <GradientStop Color="#FFB0B8B8" Offset="0.5"/>
+                        <GradientStop Color="#FF7A8686" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+
+            <!-- SUBTLE SHADOW -->
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black"
+                   BlurRadius="4"
+                   ShadowDepth="1"
+                   Opacity="0.4"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Height="946" Width="1562">
+        <Grid.Background>
+            <ImageBrush ImageSource="/battlefield2.jpg"/>
+        </Grid.Background>
+        <Button  x:Name="back" Margin="-8,-1,1174,770" RenderTransformOrigin="0.5,0.5" Click="BackButton_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.328"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="Transparent">
+                        <Image Source="pack://application:,,,/BattleShip;component/back.png"/>
+
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <!-- PLAYER GRID -->
+        <Border Margin="475,342,0,0"
+        Width="200" Height="200"
+        Background="#DD0B2D36"
+        BorderBrush="#BFC8D6D8"
+        BorderThickness="2"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top">
+
+            <UniformGrid x:Name="PlayerGrid"
+                 Rows="4"
+                 Columns="4"/>
+        </Border>
+
+        <!-- PLAYER LETTERS -->
+        <StackPanel Margin="420,340,0,0"
+            Width="50"
+            Height="200"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left">
+
+            <Label Content="A" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="B" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="C" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="D" Style="{StaticResource MetalLabelStyle}"/>
+        </StackPanel>
+
+        <!-- PLAYER NUMBERS -->
+        <StackPanel Orientation="Horizontal"
+            Margin="474,544,0,344"
+            HorizontalAlignment="Left">
+
+            <Label Content="1" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="2" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="3" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="4" Style="{StaticResource MetalLabelStyle}"/>
+        </StackPanel>
+        <!-- ENEMY GRID -->
+        <Border Margin="900,342,0,0"
+        Width="200" Height="200"
+        Background="#DD0B2D36"
+        BorderBrush="#BFC8D6D8"
+        BorderThickness="2"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top">
+
+            <UniformGrid x:Name="EnemyGrid"
+                 Rows="4"
+                 Columns="4"/>
+        </Border>
+
+        <!-- ENEMY LETTERS -->
+        <StackPanel Margin="1105,341,0,0"
+            Width="50"
+            Height="200"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left">
+
+            <Label Content="Q" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="R" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="S" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="T" Style="{StaticResource MetalLabelStyle}"/>
+        </StackPanel>
+
+        <!-- ENEMY NUMBERS -->
+        <StackPanel Orientation="Horizontal"
+            Margin="900,539,0,341"
+            HorizontalAlignment="Left">
+
+            <Label Content="1" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="2" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="3" Style="{StaticResource MetalLabelStyle}"/>
+            <Label Content="4" Style="{StaticResource MetalLabelStyle}"/>
+        </StackPanel>
+        <!-- STATUS TEXT -->
+        <Border Background="#AA000000"
+        BorderBrush="#BFC8D6D8"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="8"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        Margin="684,70,0,0"
+        Height="63">
+
+            <TextBlock x:Name="GameStatusText"
+           Text="Place your ships!"
+           Foreground="White"
+           FontSize="26"
+           FontWeight="Bold"
+           HorizontalAlignment="Left"
+           VerticalAlignment="Top" Margin="0,2,0,0">
+
+                <TextBlock.RenderTransform>
+                    <TranslateTransform x:Name="StatusTextTransform" />
+                </TextBlock.RenderTransform>
+
+            </TextBlock>
+        </Border>
+        <!-- GRID VISUALS -->
+        <Label x:Name="Player" Content="PLAYER" HorizontalAlignment="Left" 
+            Height="68" Margin="435,242,0,0" VerticalAlignment="Top" Width="240" 
+            FontSize="52" FontWeight="Bold" FontFamily="Castellar" 
+            Background="#FFA9B4B0" BorderBrush="#FF222B32" 
+            Foreground="#FF262E36" OpacityMask="#FFD2B99B"/>
+        <Label x:Name="Enemy" Content="ENEMY" HorizontalAlignment="Left" 
+            Height="68" Margin="900,242,0,0" VerticalAlignment="Top" Width="214" 
+            FontSize="52" FontWeight="Bold" FontFamily="Castellar" 
+            Background="#FFA9B4B0" BorderBrush="#FF222B32" 
+            Foreground="#FF262E36" OpacityMask="#FFD2B99B"/>
+        <Label x:Name="txtPlayerScore" Content="0" HorizontalAlignment="Left" 
+            Margin="732,246,0,0" VerticalAlignment="Top" FontWeight="Bold" 
+            FontSize="48" Background="#FFA9B4B0" Foreground="#FF262E36" FontFamily="Castellar" Height="64" Width="46"/>
+        <Label x:Name="txtEnemyScore" Content="0" HorizontalAlignment="Left" 
+            Margin="812,246,0,0" VerticalAlignment="Top" FontWeight="Bold" 
+            FontSize="48" Background="#FFA9B4B0" Foreground="#FF262E36" FontFamily="Castellar" Height="64"/>
+        <Button Content="🔄"
+             Click="Restart_Click"
+             Width="105"
+             Height="98"
+             Margin="0,44,221,0"
+             HorizontalAlignment="Right"
+             VerticalAlignment="Top"
+             Background="#DD102B34"
+             BorderBrush="#BFC8D6D8"
+             BorderThickness="2"
+             Foreground="White"
+             FontWeight="Bold"
+             FontSize="40" RenderTransformOrigin="-2.945,1.63"/>
+    </Grid>
+</Page>
